@@ -276,6 +276,25 @@
     .ref-tags{display:flex;gap:6px;flex-wrap:wrap}
     .tag{background:var(--cream);color:var(--text);font-size:.72rem;padding:3px 10px;border-radius:100px;font-weight:600}
 
+    /* EXPERT FAQ TABS */
+    .efaq-nav{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid var(--border);margin-bottom:28px;padding-bottom:0}
+    .efaq-tab{padding:10px 16px;font-size:.8rem;font-weight:700;cursor:pointer;border:none;background:none;color:var(--text-mid);border-bottom:2px solid transparent;margin-bottom:-2px;border-radius:6px 6px 0 0;transition:all .2s;letter-spacing:.02em;text-transform:uppercase}
+    .efaq-tab:hover:not(.active){color:var(--navy);background:rgba(26,58,107,.05)}
+    .efaq-tab.active{color:var(--navy);border-bottom-color:var(--navy);background:var(--white)}
+    .efaq-pane{display:none}
+    .efaq-pane.active{display:block}
+    .efaq-item{border-bottom:1px solid var(--border)}
+    .efaq-item.h4-item .efaq-q-btn{padding-left:20px;font-size:.83rem;color:var(--text-mid)}
+    .efaq-q-btn{width:100%;text-align:left;background:none;border:none;padding:16px 36px 16px 0;font-family:var(--ff-body);font-size:.92rem;font-weight:600;color:var(--navy-dark);cursor:pointer;display:block;position:relative;line-height:1.5}
+    .efaq-q-btn .efaq-icon{position:absolute;right:0;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;background:var(--cream);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.7rem;transition:transform .2s,background .2s}
+    .efaq-item.open .efaq-q-btn .efaq-icon{transform:translateY(-50%) rotate(45deg);background:var(--navy);border-color:var(--navy);color:#fff}
+    .efaq-icon::before{content:'+'}
+    .efaq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .efaq-item.open .efaq-a{max-height:400px}
+    .efaq-a-inner{padding:0 0 16px;font-size:.88rem;line-height:1.75;color:var(--text-mid)}
+    .efaq-list{margin:10px 0 4px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+    .efaq-list li{padding-left:14px;position:relative}.efaq-list li::before{content:"–";position:absolute;left:0;color:var(--navy)}
+
     @media(max-width:1024px){
       .hero-inner{grid-template-columns:1fr;gap:48px}
       .hero-cred{max-width:440px}
@@ -383,6 +402,160 @@
     <div class="stat-item"><span class="stat-num">2 év</span><div class="stat-lbl">Garancia</div></div>
   </div>
 </div>
+
+<!-- SZAKÉRTŐI FAQ -->
+<section id="szakertoi-faq" style="background:var(--white);padding:80px 0">
+  <div class="sec-inner">
+    <div class="sec-header reveal">
+      <div class="sec-overline"><span>Kérdések &amp; Válaszok</span></div>
+      <h2 class="sec-title">Miért válassza <em><span class="dyn-name">Kovács Péter</span></em> szolgáltatásait<br>kamerarendszer telepítéséhez Debrecenben?</h2>
+    </div>
+    <div class="expert-faq reveal">
+      <div class="efaq-nav" role="tablist">
+        <button class="efaq-tab active" data-etab="0">Bemutatkozás</button>
+        <button class="efaq-tab" data-etab="1">Helyszín</button>
+        <button class="efaq-tab" data-etab="2">Szakterület</button>
+        <button class="efaq-tab" data-etab="3">Szolgáltatások</button>
+        <button class="efaq-tab" data-etab="4">Innováció</button>
+        <button class="efaq-tab" data-etab="5">Elvek</button>
+        <button class="efaq-tab" data-etab="6">Kapcsolat</button>
+        <button class="efaq-tab" data-etab="7">Időpontfoglalás</button>
+      </div>
+
+      <!-- TAB 0: Bemutatkozás -->
+      <div class="efaq-pane active" data-epane="0">
+        <div class="efaq-item open">
+          <button class="efaq-q-btn">Mi <span class="dyn-name">Kovács Péter</span> szakmai háttere?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> biztonságtechnikai szakember, aki az IP-kamerás rendszerek teljes életciklusát — tervezéstől a szervizgaranciáig — lefedi. Szakmai hátterét három pillér adja:<ul class="efaq-list"><li><strong>Képzettség</strong> — elektrotechnikai szakirány, Hikvision Silver Partner és Dahua Partner gyártói tanúsítás</li><li><strong>Tapasztalat</strong> — 6 év aktív telepítő Debrecenben, 200+ lezárt projekt</li><li><strong>Szaktudás</strong> — IP-kamera, NVR, PoE-switch tervezés és konfigurálás, GDPR-kompatibilis dokumentálás</li></ul></div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Ki <span class="dyn-name">Kovács Péter</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> tapasztalt kamerarendszer-telepítő és biztonságtechnikai szakértő Debrecenből. 6 éve épít ki professzionális megfigyelőrendszereket lakások, irodák, éttermek, társasházak és ipari létesítmények számára Debrecenben és Hajdú-Bihar megyében. Hikvision Silver Partner és Dahua Partner tanúsítvánnyal rendelkezik; eddig több mint 200 projektet zárt le sikeresen. Munkájára az ügyfél-specifikus tervezés, az esztétikus kivitelezés és a teljes körű GDPR-kompatibilitás jellemző.</div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Mi inspirálta <span class="dyn-name">Kovács Pétert</span> erre a szakmára?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner">A valódi fizikai biztonság megteremtése iránti vágy indította el <span class="dyn-name">Kovács Pétert</span> a biztonságtechnika felé. Rájött, hogy a legtöbb helyen meglévő rendszerek csak látszatbiztonságot nyújtanak — rossz kameraelhelyezés, gyenge felbontás, hiányos tárolás. Ez az észrevétel motiválja ma is: minden projektnél valódi, megbízható védelmet akar nyújtani Debrecenben és környékén.</div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Milyen területekre specializálódott <span class="dyn-name">Kovács Péter</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> szakterülete az IP-alapú kamerarendszerek teljeskörű kivitelezése, négy fő szegmensben:<ul class="efaq-list"><li><strong>Lakóingatlanok</strong> — otthoni kamerarendszerek lakásokhoz, kertes házakhoz Debrecenben</li><li><strong>Vállalkozások</strong> — üzleti megoldások irodákhoz, éttermekhez, üzletekhez</li><li><strong>Társasházak</strong> — közös területek védelme, kapu- és liftfelügyelet</li><li><strong>Ipari létesítmények</strong> — ipari rendszerek raktárakhoz, gyárakhoz, a debreceni ipari parkban</li></ul></div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Mi <span class="dyn-name">Kovács Péter</span> küldetése?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> küldetése, hogy minden debreceni ügyfele jogszabálykompatibilis, valóban működő kamerarendszert kapjon — büdzsétől függetlenül. Víziója egy olyan Debrecen, ahol a professzionális biztonságtechnika nem luxus, hanem elérhető alap. Ennek jegyében sohasem ajánl felesleges eszközöket, és minden projektet az igényekre szabva, átlátható árazással visz végig.</div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Milyen elismeréseket kapott <span class="dyn-name">Kovács Péter</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> Hikvision Silver Partner és Dahua Partner minősítéssel rendelkezik. Google-értékelései 4.7/5 átlagot mutatnak 143 vélemény alapján, ami a debreceni biztonságtechnikai szakemberek között kiemelkedő eredmény.</div></div>
+        </div>
+      </div>
+
+      <!-- TAB 1: Helyszín -->
+      <div class="efaq-pane" data-epane="1">
+        <div class="efaq-item open">
+          <button class="efaq-q-btn">Hol tevékenykedik jelenleg <span class="dyn-name">Kovács Péter</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> elsődleges munkaterülete Debrecen és Hajdú-Bihar megye, rendszeres kiszállásokkal az alábbi zónákban:<ul class="efaq-list"><li><strong>Debrecen belváros és városrészek</strong> — Belváros, Újkert, Tócóskert, Füredi, Vénkert, rövid reakcióidővel</li><li><strong>Debrecen külső területek</strong> — Józsa, Nagycsere, Haláp, Bánk, 24 órán belül</li><li><strong>Hajdú-Bihar megye</strong> — Hajdúböszörmény, Hajdúszoboszló, Berettyóújfalu és környéke</li></ul></div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Honnan származik <span class="dyn-name">Kovács Péter</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> debreceni kötődésű szakember, aki a helyi piac sajátosságait — társasházi szabályzatokat, ipari park adottságait, panel- és téglaépületek kábelezési lehetőségeit — belülről ismeri. Ez a helyi tudás közvetlenül érvényesül a tervezési fázisban.</div></div>
+        </div>
+        <div class="efaq-item h4-item">
+          <button class="efaq-q-btn">Végez-e <span class="dyn-name">Kovács Péter</span> munkát Hajdú-Bihar megyén kívül is?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner">Igen, de feltételekkel. Hajdú-Bihar megyén túli helyszínekre csak nagyobb volumenű projektekre — legalább 8–10 kamerás rendszer — vállal kiszállást <span class="dyn-name">Kovács Péter</span>, előzetes egyeztetés és külön kiszállási díj alapján.</div></div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Szakterület -->
+      <div class="efaq-pane" data-epane="2">
+        <div class="efaq-item open">
+          <button class="efaq-q-btn">Mely területeket és városrészeket szolgálja ki <span class="dyn-name">Kovács Péter</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> Debrecen valamennyi városrészében aktív, kiemelten az alábbi területeken:<ul class="efaq-list"><li><strong>Belváros és Újkert</strong> — irodaházi, üzleti és társasházi megbízások</li><li><strong>Tócóskert és Füredi</strong> — lakóingatlanok és kertes házak</li><li><strong>Debreceni ipari park</strong> — raktárak, üzemek, logisztikai létesítmények</li><li><strong>Hajdúböszörmény, Hajdúszoboszló</strong> — vállalkozások és magánmegrendelők</li></ul></div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Mi <span class="dyn-name">Kovács Péter</span> képzési háttere?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> képzési alapja elektrotechnikai szakirány, amelyet több gyártóspecifikus tanúsítási programmal egészített ki:<ul class="efaq-list"><li><strong>Elektrotechnika</strong> — elektrotechnikai kivitelezői végzettség és jogosultság</li><li><strong>Hikvision</strong> — Silver Partner tanúsítás, IP-kamera és NVR szakirány</li><li><strong>Dahua</strong> — Partner tanúsítás, rendszertervezési és konfigurációs szint</li><li><strong>GDPR</strong> — biztonságtechnikai adatvédelmi megfelelési képzés</li></ul></div></div>
+        </div>
+        <div class="efaq-item h4-item">
+          <button class="efaq-q-btn">Milyen bizonyítványai vannak <span class="dyn-name">Kovács Péternek</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> rendelkezik Hikvision Silver Partner és Dahua Partner tanúsítvánnyal, elektrotechnikai kivitelezői jogosultsággal és Hajdú-Bihar megyei telepítői engedéllyel. Ezek együtt biztosítják, hogy a kivitelezés jogszabályi és gyártói követelmények szerint is kifogástalan legyen.</div></div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Szolgáltatások -->
+      <div class="efaq-pane" data-epane="3">
+        <div class="efaq-item open">
+          <button class="efaq-q-btn">Milyen kamerarendszer-telepítési szolgáltatásokat kínál <span class="dyn-name">Kovács Péter</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> teljes körű, „kulcsrakész" szolgáltatáscsomagot kínál Debrecenben:<ul class="efaq-list"><li><strong>Ingyenes helyszíni felmérés</strong> — kameraelhelyezési terv és tételes ajánlat</li><li><strong>Rendszertervezés</strong> — kameramodell, rögzítési pont, NVR és hálózati terv</li><li><strong>Eszközbeszerzés</strong> — minősített Hikvision / Dahua hardver, szállítmányozással</li><li><strong>Telepítés és beüzemelés</strong> — elrejtett kábelezés, esztétikus rögzítés, konfigurálás</li><li><strong>Mobilos elérés</strong> — okostelefon-app beállítás, élő kép és visszajátszás</li><li><strong>GDPR-dokumentáció</strong> — adatkezelési tájékoztató, figyelmeztető táblák</li><li><strong>2 éves garancia</strong> — eszközök és telepítés garanciális szervize</li></ul></div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Milyen típusú ügyfeleket szolgál ki <span class="dyn-name">Kovács Péter</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> ügyfelei négy fő szegmensbe esnek:<ul class="efaq-list"><li><strong>Magánemberek</strong> — debreceni lakások, kertes házak, nyaralók</li><li><strong>Vállalkozások</strong> — irodák, éttermek, szállodák, kiskereskedelmi üzletek</li><li><strong>Társasházak</strong> — lépcsőház, parkoló, kapu és közös területek</li><li><strong>Ipari ügyfelek</strong> — raktárak, gyárak, a debreceni ipari park létesítményei</li></ul></div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Hogyan biztosítja <span class="dyn-name">Kovács Péter</span> az átláthatóságot?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> minden munkálathoz tételes árajánlatot ad — eszközönként és munkadíjanként bontva, rejtett tétel nélkül. A GDPR-dokumentáció — adatkezelési nyilatkozat, figyelmeztető táblák, automatikus felvétel-felülírás beállítása — szintén az alap csomag részét képezi.</div></div>
+        </div>
+      </div>
+
+      <!-- TAB 4: Innováció -->
+      <div class="efaq-pane" data-epane="4">
+        <div class="efaq-item open">
+          <button class="efaq-q-btn">Milyen innovációk fogják átalakítani a szakmát <span class="dyn-name">Kovács Péter</span> szerint?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> négy technológiai trendet tart kiemelkedően fontosnak:<ul class="efaq-list"><li><strong>AI-alapú videóelemzés</strong> — valós idejű mozgáskövető és személyfelismerő algoritmusok</li><li><strong>Arcfelismerés</strong> — személyazonosítás kameraképből, beléptetőrendszer-integráció</li><li><strong>Edge computing</strong> — kamerán belüli elemzés, szerver nélküli intelligencia</li><li><strong>Valós idejű riasztás</strong> — azonnali push-értesítés, közvetlen riasztóközpont-integráció</li></ul></div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Hogyan alkalmazza <span class="dyn-name">Kovács Péter</span> a legújabb technológiákat?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> már ma is beépíti az AI-alapú videóelemzést azokba a projektekbe, ahol az ügyfél igényli és a büdzsé lehetővé teszi. Nem ajánl minden esetben a legdrágább megoldást; a technológiaválasztást mindig az adott debreceni helyszín kockázati profiljához igazítja.</div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Hogyan látja <span class="dyn-name">Kovács Péter</span> a kamerarendszer-telepítés jövőjét?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> szerint a következő 2–3 év legnagyobb változása az AI-alapú videóelemzés általánossá válása: a kamerák nemcsak rögzítenek, hanem valós időben figyelmeztetnek mozgásra, ismeretlen személyekre vagy területhatár-átlépésre. A 4K felbontás és a felhős tárolás is egyre elérhetőbb áron kerül az átlagos ügyfél közelébe.</div></div>
+        </div>
+      </div>
+
+      <!-- TAB 5: Elvek -->
+      <div class="efaq-pane" data-epane="5">
+        <div class="efaq-item open">
+          <button class="efaq-q-btn">Mik <span class="dyn-name">Kovács Péter</span> karrierjének vezérelvei?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> szakmai magatartását négy alapelv határozza meg:<ul class="efaq-list"><li><strong>Minőség kompromisszum nélkül</strong> — kizárólag minősített eszközök, precíz kivitelezés</li><li><strong>Átlátható árazás</strong> — tételes ajánlat, nincsenek rejtett díjak</li><li><strong>Ügyfélközpontúság</strong> — az igényekre szabott megoldás, nem sablonajánlat</li><li><strong>Folyamatos fejlődés</strong> — rendszeres képzés, új technológiák aktív követése</li></ul></div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Mi motiválja <span class="dyn-name">Kovács Pétert</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Pétert</span> az motiválja a legjobban, amikor egy debreceni ügyfél felhívja és elmondja, hogy a kamerarendszere segített megakadályozni egy betörést vagy felderíteni egy vandálkárt. A visszatérő megbízások és az ajánlások azt mutatják, hogy a befektetett munka valóban értéket teremt.</div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Milyen kedvenc mottói vannak <span class="dyn-name">Kovács Péternek</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> mottója: „A biztonság nem luxus, hanem alapjog." Ez nem szlogen, hanem munkastílus: az egyszerűbb büdzséjű ügyfeleknek is ugyanolyan gondossággal tervezi meg a rendszert, mint a nagyobb volumenű projekteket.</div></div>
+        </div>
+      </div>
+
+      <!-- TAB 6: Kapcsolat -->
+      <div class="efaq-pane" data-epane="6">
+        <div class="efaq-item open">
+          <button class="efaq-q-btn">Hogyan lehet felvenni a kapcsolatot <span class="dyn-name">Kovács Péterrel</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péterrel</span> legegyszerűbben telefonon érhető el: <a href="tel:+36303911638" class="dyn-phone" style="color:var(--navy)">+36-30-391-1638</a> (hétköznap 8–18h, szombaton 9–14h). E-mailben az <a href="mailto:info@kamerarendszer-debrecen.hu" style="color:var(--navy)">info@kamerarendszer-debrecen.hu</a> címen lehet írni — válasz általában 1 munkanapon belül érkezik.</div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Hogyan egyensúlyozza <span class="dyn-name">Kovács Péter</span> a szakmai kiválóságot az ügyfélorientált hozzáállással?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner"><span class="dyn-name">Kovács Péter</span> szerint a két dolog nem ellentétes: a technikailag tökéletes munka csak akkor értékes, ha az ügyfél valódi problémájára ad választ. Ezért minden projekt az igények meghallgatásával és a debreceni helyszín megértésével kezdődik — a technológia csak ezután kerül képbe.</div></div>
+        </div>
+      </div>
+
+      <!-- TAB 7: Időpontfoglalás -->
+      <div class="efaq-pane" data-epane="7">
+        <div class="efaq-item open">
+          <button class="efaq-q-btn">Hogyan lehet időpontot foglalni vagy ingyenes felmérést kérni <span class="dyn-name">Kovács Pétertől</span>?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner">Az ingyenes helyszíni felmérés kérése három lépéses:<ul class="efaq-list"><li><strong>Telefonhívás</strong> — hívja <span class="dyn-name">Kovács Pétert</span> a <a href="tel:+36303911638" class="dyn-phone" style="color:var(--navy)">+36-30-391-1638</a> számon</li><li><strong>Időpontegyeztetés</strong> — 48 órán belüli helyszíni felmérés Debrecenben, Ön által választott időpontban</li><li><strong>Tételes ajánlat</strong> — a felmérés után ingyenes, kötelezettségmentes árajánlat</li></ul>Alternatívaként e-mailben is elérhető: <a href="mailto:info@kamerarendszer-debrecen.hu" style="color:var(--navy)">info@kamerarendszer-debrecen.hu</a></div></div>
+        </div>
+        <div class="efaq-item">
+          <button class="efaq-q-btn">Kínál-e <span class="dyn-name">Kovács Péter</span> online konzultációt?<span class="efaq-icon"></span></button>
+          <div class="efaq-a"><div class="efaq-a-inner">Igen, telefonos és videóhívásos előzetes konzultáció elérhető <span class="dyn-name">Kovács Pétertől</span>. Az online konzultáció alkalmas az igények megbeszélésére és hozzávetőleges árajánlat adására — de a pontos, tételes ajánlathoz minden esetben ingyenes helyszíni felmérés szükséges Debrecenben.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- SZOLGÁLTATÁSOK -->
 <section id="szolgaltatasok">
@@ -771,6 +944,26 @@
   });
 
   document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+  // ── Szakértői FAQ tabs ───────────────────────────────────────
+  document.querySelectorAll('.efaq-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const idx = tab.dataset.etab;
+      document.querySelectorAll('.efaq-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.efaq-pane').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector('.efaq-pane[data-epane="' + idx + '"]').classList.add('active');
+    });
+  });
+  document.querySelectorAll('.efaq-q-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const pane = item.closest('.efaq-pane');
+      const open = item.classList.contains('open');
+      pane.querySelectorAll('.efaq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
 
   // ── Admin szerkesztési mód ───────────────────────────────────
   const SAVE_URL     = 'https://saveminisite-e3yxgwd3oq-ey.a.run.app';
