@@ -826,17 +826,52 @@
   })();
 
   (async function(){
-    const id = new URLSearchParams(location.search).get('id');
-    if (!id) return;
+    const id     = new URLSearchParams(location.search).get('id');
+    const apiKey = 'AIzaSyDfdCNl3LeuBT4xIYQPYluSVKKMFJTGVws';
+    const colUrl = 'https://firestore.googleapis.com/v1/projects/joszaki-minisite/databases/(default)/documents/joszaki_kamera_debrecen/';
     try {
-      const res = await fetch(
-        'https://firestore.googleapis.com/v1/projects/joszaki-minisite/databases/(default)/documents/joszaki_kamera_debrecen/'
-        + encodeURIComponent(id) + '?key=AIzaSyDfdCNl3LeuBT4xIYQPYluSVKKMFJTGVws'
-      );
-      if (!res.ok) return;
-      const f = (await res.json()).fields || {};
-      const name  = f.name?.stringValue;
-      const phone = f.phone?.stringValue;
+      let f, docId;
+      if (id) {
+        const res = await fetch(colUrl + encodeURIComponent(id) + '?key=' + apiKey);
+        if (!res.ok) return;
+        f = (await res.json()).fields || {};
+        docId = id;
+      } else {
+        // Első dokumentum ahol van egyedi profilkép (foto mező nem üres)
+        const res = await fetch(
+          'https://firestore.googleapis.com/v1/projects/joszaki-minisite/databases/(default)/documents:runQuery?key=' + apiKey,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              structuredQuery: {
+                from: [{ collectionId: 'joszaki_kamera_debrecen' }],
+                where: {
+                  fieldFilter: {
+                    field: { fieldPath: 'foto' },
+                    op: 'GREATER_THAN',
+                    value: { stringValue: '' }
+                  }
+                },
+                limit: 1
+              }
+            })
+          }
+        );
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!data[0]?.document) return;
+        f = data[0].document.fields || {};
+        docId = data[0].document.name.split('/').pop();
+      }
+
+      const name     = f.name?.stringValue;
+      const phone    = f.phone?.stringValue;
+      const siteUrl  = 'https://' + SITE.domain + '/';
+      const pageUrl  = id ? (siteUrl + '?id=' + encodeURIComponent(docId)) : siteUrl;
+      const joszakiUrl = 'https://joszaki.hu/szakember/' + docId;
+      const fotoUrl  = f.foto?.stringValue
+        || ('https://storage.googleapis.com/joszaki-assets/minisite_assests/' + docId + '.webp');
 
       if (name) {
         document.querySelectorAll('.dyn-name').forEach(el => el.textContent = name);
@@ -858,8 +893,6 @@
         form.style.display    = 'none';
       }
 
-      const fotoUrl = f.foto?.stringValue
-        || ('https://storage.googleapis.com/joszaki-assets/minisite_assests/' + id + '.webp');
       const img = document.getElementById('profilImg');
       if (img) {
         img.onerror = () => { img.onerror = null; img.src = '/default-avatar.webp'; };
@@ -868,10 +901,7 @@
       }
 
       if (name) {
-        const pageUrl    = 'https://' + SITE.domain + '/?id=' + encodeURIComponent(id);
-        const siteUrl    = 'https://' + SITE.domain + '/';
-        const joszakiUrl = 'https://joszaki.hu/szakember/' + id;
-        const injectLd   = obj => { const s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = JSON.stringify(obj); document.head.appendChild(s); };
+        const injectLd = obj => { const s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = JSON.stringify(obj); document.head.appendChild(s); };
 
         injectLd({
           "@context": "https://schema.org",
